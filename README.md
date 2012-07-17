@@ -1,4 +1,4 @@
 smilingleo-github.com
 =====================
 
-my personal tech site
+This is place where I put my personal stuff, like sample code, sparking ideas etc.
