@@ -1,0 +1,15 @@
+class Star ->
+    name
+    age
+    diameter
+
+class Person ->
+    name
+    age
+    gender
+
+name_age(star) ->
+    print("@{star.name} is @{star.age} years old")
+
+name_age(new Star(name:"earth", age:63883882))
+name_age(new Person(name:'leo', age:35, gender:'male'))

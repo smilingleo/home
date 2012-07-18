@@ -1,0 +1,5 @@
+require `java.sql.DriverManager`
+main ->
+    clazz: `Class`.forName("com.mysql.jdbc.Driver")
+    clazz<-newInstance()
+    `DriverManager`.getConnection('jdbc:mysql://localhost:3306/test', 'root','').createStatement().executeQuery("select * from detail")
