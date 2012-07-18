@@ -1,0 +1,17 @@
+require channels
+
+print_msg(msg) =>
+	-1	:	@shutdown
+	@print	:	print(mem[@count])
+	*	:	mem[@count] = mem[@count] + 10
+	where
+		mem	:	channel_memory()
+
+main ->
+	# { @serialize : true } will make it execute in order
+	# { @workers : n } , each channel with how many threads, note for @serialized channel, only 1 worker.
+	channel(@queue, print_msg, { @serialize : true }),
+	@queue.send(i) for i in [1..10],
+	@queue.send(@print),
+	@queue.send(-1)
+
