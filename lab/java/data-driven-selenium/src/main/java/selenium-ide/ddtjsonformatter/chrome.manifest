@@ -1,0 +1,4 @@
+content ddtjsonformatter chrome/content/
+
+# custom format(s)
+overlay chrome://selenium-ide/content/selenium-ide-common.xul chrome://ddtjsonformatter/content/formats/format-loader.xul
