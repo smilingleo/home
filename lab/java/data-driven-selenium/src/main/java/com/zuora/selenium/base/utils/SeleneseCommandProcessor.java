@@ -48,52 +48,51 @@ public class SeleneseCommandProcessor {
       if (command.endsWith("AndWait")) {
          cmd = cmd.replace("AndWait", "");
       }
-      return ((WebDriverCommandProcessor)processor).doCommand(cmd, args);
       
-//      if (command.equals("mouseOver")){
-//    	 WebDriver driver = ((WebDriverCommandProcessor)processor).getWrappedDriver();
-//    	 WebElement toElement = null;
-//    	 if(args[0].startsWith("id=")){
-//    		 args[0] = args[0].replace("id=", "");
-//    		 toElement = driver.findElement(By.id(args[0]));
-//    	 }else if(args[0].startsWith("name=")){
-//    		 args[0] = args[0].replace("name=", "");
-//    		 toElement = driver.findElement(By.name(args[0]));
-//    	 }else if(args[0].startsWith("css=")){
-//    		 args[0] = args[0].replace("css=", "");
-//    		 toElement = driver.findElement(By.cssSelector(args[0]));
-//    	 }else if(args[0].startsWith("xpath")){
-//    		 args[0] = args[0].replace("xpath=", "");
-//    		 toElement = driver.findElement(By.xpath(args[0]));
-//    	 }else{//if no prefix
-//    		 try{
-//    			 toElement = driver.findElement(By.xpath(args[0]));
-//    		 }catch(Exception e1){
-//    			 try{
-//    				 toElement = driver.findElement(By.id(args[0]));
-//    			 }catch(Exception e2){
-//    				 try{
-//    					 toElement = driver.findElement(By.name(args[0]));
-//    				 }catch(Exception e3){
-//    					 try{
-//    						 toElement = driver.findElement(By.cssSelector(args[0])); 
-//    					 }catch(Exception e4){
-//    						 throw new RuntimeException("please check your mouse over locator,make sure it is id or name or css or xpath ");
-//    					 }
-//    				 }
-//    				 
-//    			 }
-//    		 }
-//    	 }
-//    		 
-//
-//    	 Actions actions = new Actions(driver);
-//    	 actions.moveToElement(toElement).build().perform();       	
-//    	 return "";
-//      }else{
-//    	  String rtn = processor.doCommand(cmd, args);
-//    	  return rtn;
-//      }
+      if (command.equals("mouseOver")){
+    	 WebDriver driver = ((WebDriverCommandProcessor)processor).getWrappedDriver();
+    	 WebElement toElement = null;
+    	 if(args[0].startsWith("id=")){
+    		 args[0] = args[0].replace("id=", "");
+    		 toElement = driver.findElement(By.id(args[0]));
+    	 }else if(args[0].startsWith("name=")){
+    		 args[0] = args[0].replace("name=", "");
+    		 toElement = driver.findElement(By.name(args[0]));
+    	 }else if(args[0].startsWith("css=")){
+    		 args[0] = args[0].replace("css=", "");
+    		 toElement = driver.findElement(By.cssSelector(args[0]));
+    	 }else if(args[0].startsWith("xpath")){
+    		 args[0] = args[0].replace("xpath=", "");
+    		 toElement = driver.findElement(By.xpath(args[0]));
+    	 }else{//if no prefix
+    		 try{
+    			 toElement = driver.findElement(By.xpath(args[0]));
+    		 }catch(Exception e1){
+    			 try{
+    				 toElement = driver.findElement(By.id(args[0]));
+    			 }catch(Exception e2){
+    				 try{
+    					 toElement = driver.findElement(By.name(args[0]));
+    				 }catch(Exception e3){
+    					 try{
+    						 toElement = driver.findElement(By.cssSelector(args[0])); 
+    					 }catch(Exception e4){
+    						 throw new RuntimeException("please check your mouse over locator,make sure it is id or name or css or xpath ");
+    					 }
+    				 }
+    				 
+    			 }
+    		 }
+    	 }
+    		 
+
+    	 Actions actions = new Actions(driver);
+    	 actions.moveToElement(toElement).build().perform();       	
+    	 return "";
+      }else{
+    	  String rtn = processor.doCommand(cmd, args);
+    	  return rtn;
+      }
    }
 
    private boolean parseAccessor(String command, String[] args) {
