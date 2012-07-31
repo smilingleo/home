@@ -1,5 +1,8 @@
-require `java.sql.DriverManager`
 main ->
-    clazz: `Class`.forName("com.mysql.jdbc.Driver")
-    clazz<-newInstance()
-    `DriverManager`.getConnection('jdbc:mysql://localhost:3306/test', 'root','').createStatement().executeQuery("select * from detail")
+    print(row) for row in rsList
+    where
+        driver: `com.mysql.jdbc.Driver`.newInstance()   # class.newInstance issue #13.
+        conn: `java.sql.DriverManager`.getConnection('jdbc:mysql://localhost:3306/test', 'root','')
+        stmt: conn.createStatement()
+        result: stmt.executeQuery("select * from detail")
+        rsList: `loop.util.ResultSetUtils`.convertResultSet(result)     # ResultSetUtils is a java class which convert ResultSet to a list, since loop only support iterator agaist Collection
