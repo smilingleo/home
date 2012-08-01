@@ -1,7 +1,11 @@
+# How to Run:
+# > java -classpath $LOOP_HOME/loop.jar:./lib/mysql-connector-java-5.1.7-bin.jar:./lib/ loop.Loop mysql.loop
+# Note: the ./lib/ must be in the class path
+
 main ->
     print(row) for row in rsList
     where
-        driver: `com.mysql.jdbc.Driver`.newInstance()   # class.newInstance issue #13.
+        driver: `java.lang.Class`.forName("com.mysql.jdbc.Driver").newInstance()   # class.newInstance issue #13.
         conn: `java.sql.DriverManager`.getConnection('jdbc:mysql://localhost:3306/test', 'root','')
         stmt: conn.createStatement()
         result: stmt.executeQuery("select * from detail")
