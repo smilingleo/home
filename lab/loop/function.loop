@@ -1,0 +1,5 @@
+main ->
+    print(' hi'),
+    print(a)
+    where
+        a: "234"

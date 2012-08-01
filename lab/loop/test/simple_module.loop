@@ -1,0 +1,16 @@
+module test.sample_module   # module declaration. the file name must match with the module name
+
+require file as f  # import aliasing
+
+# the method name is same with the one in file module,
+# to invoke file.read, the import alias must be used, aka, f.read()
+# file.read() doesn't work.
+
+read(val) =>
+    /[0-9]+/    :   val.to_integer()
+    /^$/        :   print("blank")
+    *           :   val
+
+run ->
+    print(f.read('function.loop')),
+    print(read('function.loop'))
