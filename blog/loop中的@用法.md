@@ -24,15 +24,15 @@ loop允许将一个function作为参数传递，那么接收这个function的代
 * module scope
 如果在一个module里，想定义一些私有function，也就是不想让其他function能够访问的，可以在这个module里定义function的时候在其前面加上@, e.g.
 ```javascript
-@last(ls) ->
-    ls[ls.length() - 1]
+    @last(ls) ->
+        ls[ls.length() - 1]
 
-[1,2,3].@last()
+    [1,2,3].@last()
 ```
 这里，`@last`只能在自己的module里可见。
 
 * 匿名函数anonymous function
 ```javascript
-manipulate([1,2,3], @(x) -> { x * 5 })
+    manipulate([1,2,3], @(x) -> { x * 5 })
 ```
 
