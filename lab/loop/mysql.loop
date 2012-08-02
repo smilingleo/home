@@ -5,7 +5,7 @@
 main ->
     print(row) for row in rsList
     where
-        driver: `java.lang.Class`.forName("com.mysql.jdbc.Driver").newInstance()   # class.newInstance issue #13.
+        driver: `com.mysql.jdbc.Driver::class`.newInstance()   # class.newInstance issue #13.
         conn: `java.sql.DriverManager`.getConnection('jdbc:mysql://localhost:3306/test', 'root','')
         stmt: conn.createStatement()
         result: stmt.executeQuery("select * from detail")
