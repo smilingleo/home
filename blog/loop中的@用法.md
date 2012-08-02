@@ -1,21 +1,21 @@
 在loop中，@操作符有很多用法，这里简单总结一下：
 * orb tags, 用来在一个字符串中嵌套一个表达式，比如：
 ``` ruby
-print("hello, @{name}")
+    print("hello, @{name}")
 ```
 
 * 作为一个前缀，用来表示具有字面精度的数字
 ``` ruby 
-print(@1234123412341234123423523)
+    print(@1234123412341234123423523)
 ```
 另外，loop里面数字运算要求所有参与运算的精度必须一致，否则将报错
 
 * interned string called symbol
 ```javascript
-{
-    @name: 'Leo Liu',
-    @age : '100'
-}
+    {
+        @name: 'Leo Liu',
+        @age : '100'
+    }
 ```
 
 * calling functions
