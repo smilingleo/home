@@ -1,4 +1,5 @@
 * Overall structure of a compiled class
+```java
 +----------------------------------------------------------------------+
 |Modifiers, name, super class, interfaces (of class)                   |
 |Constant pool: numeric, string and type constants                     |
@@ -18,6 +19,7 @@
 |                 | Attribute*                                         |
 |                 | Compiled code                                      |
 +-----------------+----------------------------------------------------+
+```
 
 * Internal names
 used to represent class/interface references, *fully qualified* class name with dot replaced by slash.
@@ -25,6 +27,7 @@ for example, internal name of GregorianCalendar is java/util/GregorianCalendar
 
 * Type descriptors
 field types, Java types are represented with *type descriptors*
+```java
 +-------------+-------------------------+
 |Java Type    | Type descriptor         |
 +-------------+-------------------------+
@@ -38,8 +41,10 @@ field types, Java types are represented with *type descriptors*
 |Object       | Ljava/lang/Object;      |
 |Object[][]   | [[Ljava/lang/Object;    |
 +-------------+-------------------------+
+```
 
 * Method descriptors
+```java
 +-------------------------------------+-------------------------+
 |Method declaration in source file    | Method descriptor       |
 +-------------------------------------+-------------------------+
@@ -47,6 +52,7 @@ field types, Java types are represented with *type descriptors*
 |int m(Object o)                      | (Ljava/lang/Object;)I   |
 |int[] m(int i, String s)             | (ILjava/lang/String;)[I |
 +-------------------------------------+-------------------------+
+```
 (<param type descriptors>)<return type descriptor>
 Note:
     No method name or argument names
