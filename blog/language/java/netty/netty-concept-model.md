@@ -15,12 +15,15 @@ Channel的Pipeline里有很多handler，从第一个handler传导到最后一个
 
 一个子接口是：MessageEvent，其有一个getMessage()方法，类似一个返回payload的逻辑。该方法返回Object类型，不过很多情况下可以类型转换为：ChannelBuffer。（为什么不直接定义为返回ChannelBuffer ??)
 因为TcpIP中Socket Buffer只是一个简单的byte数组，没有任何的边界用来区分哪些字节是哪个数据包的，非常可能因为取数据时取到错误的边界导致IndexOutOfBoundsException。
+```java
 +---+---+---+
 |ABC|DEF|GHI|
 +---+---+---+
 +--+-----+-+-+
 |AB|CDEFG|H|I|
 +--+-----+-+-+
+```
+
 解决办法有两个，但基本思路都是在两边都满足一个共同的协议，比如确定每次发送的数据包大小；或者发送端设计一个encoder，接收端相应地设计一个decoder。着就是特殊的Handler FrameDecoder的目的
 
 ## ChannelFuture
