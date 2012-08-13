@@ -1,0 +1,6 @@
+echo(word) ->
+    word
+
+main ->
+    # in Java world, it should be print(echo("hello")), totally in reversed order
+    'hello'.echo().print()
