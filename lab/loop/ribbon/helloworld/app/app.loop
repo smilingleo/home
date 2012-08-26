@@ -1,8 +1,5 @@
 
-#route(uri) =>
-#  '/'  : get
-#  *    : @home
+route(uri) =>
+  '/'  : @index
+  *    : @home
 
-get(req) ->
-    { @view : @home,
-      @message: 'leo' }

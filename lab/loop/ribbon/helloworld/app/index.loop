@@ -1,0 +1,8 @@
+module index
+
+get(url) ->
+    "you are accessing @{url} by get"
+
+post(url) ->
+    "you are accessing @{url} by post"
+

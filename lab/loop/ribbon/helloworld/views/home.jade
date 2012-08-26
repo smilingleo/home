@@ -4,4 +4,10 @@ html
             |hello, ribbon
     body
         h2 
-            |hello, #{message}
+            -# in TextNode, we can't use #{message}, have to use @{message}, kind of a bug
+            |hello, @{message}
+        #accountForm
+            form(method="post",action="/app")
+                span Name:
+                input(type="text",name="name")
+                button(type="submit",name="submit_btn",title="submit") Submit

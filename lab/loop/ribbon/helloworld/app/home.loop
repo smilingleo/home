@@ -1,4 +1,8 @@
 module home
 
 get(request) ->
-  { @view : @home , @message: "Leo" }
+  { @view : @home , @message: "get" }
+
+post(request) ->
+  print('post method')
+  { @view : @home , @message: "post" }
