@@ -1,0 +1,8 @@
+
+```scala
+def welcome(yourname: String) = s"Welcome $yourname to Leo's blogsite"          <1>
+
+welcome("you")
+```
+
+<1> any comments are welcome.
